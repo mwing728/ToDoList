@@ -10,7 +10,7 @@ const useStyles = makeStyles(theme => ({
   },
   paper: {
     textAlign: 'center',
-    width: '60%',
+    width: '70%',
     color: theme.palette.text.secondary,
   },
 }))
@@ -86,15 +86,28 @@ function App() {
                       }}
                     />
                   </Paper>
-              {list.map( (content, index) =>{
-                return(
-                  <Cards 
-                    key = {index}
-                    content = {content} 
-                    deleteCard = {() => deleteContent(index)}
-                  />
-                )
-              })}
+                  <Grid 
+                      container
+                      direction = "column"
+                      justify="flex-start" 
+                      alignItems="stretch" 
+                      className={classes.root}
+                      style={{width:"55%"}}
+                  >
+                    <Grid item xs={12}>
+                      {list.map( (content, index) =>{
+                        return(
+                              <Cards 
+                                key = {index}
+                                content = {content} 
+                                deleteCard = {() => deleteContent(index)}
+                                 
+                              />
+                          
+                        )
+                      })}
+                    </Grid>
+                  </Grid>
             </header>
             <Snackbar
               open={snack.open}
